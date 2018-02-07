@@ -17,6 +17,7 @@ class User(UserMixin,db.Model):
     first_name =db.Column(db.String(255))
     last_name = db.Column(db.String(255))
     password_hash = db.Column(db.String(255))
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
 
     
     @property
@@ -34,4 +35,8 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
-    
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'role',lazy="dynamic") 
