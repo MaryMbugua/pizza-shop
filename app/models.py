@@ -41,7 +41,7 @@ class Role(db.Model):
     name = db.Column(db.String(255))
     users = db.relationship('User',backref = 'role',lazy="dynamic") 
 
-class Admin(db.Model):
+class Admin(UserMixin,db.Model):
     __tablename__ = 'admin'
     id=db.Column(db.Integer,primary_key = True)
     name=db.Column(db.String(255))
@@ -58,3 +58,15 @@ class Admin(db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.password_hash,password)
+
+class Availablepizza(UserMixin,db.Model):
+    __tablename__= 'availablepizzas'
+    id=db.Column(db.Integer,primary_key= True)
+    name=db.Column(db.String(255))
+    description=db.Column(db.String(255))
+    price=db.Column(db.String(255))
+    category=db.Column(db.String(255))
+    size=db.Column(db.String(255))
+    image_path=db.Column(db.String())
+
+    def  __init__(self,id,name,description,price,category,size,image_path)
