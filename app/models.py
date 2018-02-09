@@ -68,5 +68,19 @@ class Availablepizza(UserMixin,db.Model):
     category=db.Column(db.String(255))
     size=db.Column(db.String(255))
     image_path=db.Column(db.String())
+    img_url=db.Column(db.String(255))
 
-    def  __init__(self,id,name,description,price,category,size,image_path)
+
+    def __repr__(self):
+        return f'{self.name}'
+
+    def save_availablepizzas(self):
+        db.session.add(self)
+        db.session.commit()
+    @classmethod
+    def get_categories(cls, category):
+        pizza_cat = availablepizzas.query.filter_by(category=category)
+        return pizza_cat
+
+    # def  __init__(self,id,name,description,price,category,size,image_path):
+    #     self.ca

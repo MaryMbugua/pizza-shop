@@ -8,4 +8,7 @@ class PizzaForm(FlaskForm):
     price = StringField('Price of Pizza',validators=[Required()])
     category = RadioField('Pick from the following categories',choices=[('chicken','Chicken'),('beef','Beef'),('veg','Vegeterian')],validators=[Required()])
     size = SelectField(u'Pick from the following sizes',choices=[('sm','Small'),('md','Medium'),('lg','Large')],validators=[Required()])
+    img_url = StringField('url to image', validators=[Required()])
     submit = SubmitField('Submit')
+
+    

@@ -1,12 +1,49 @@
+{% import 'macros.html' as macro %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Welcome to our pizza app</h1>
+    <br />
+    <p>
+        <h1>Chicken Pizzas</h1>
+        <div class="container">
+                <div class="row">
+
+
+                        {{macro.displayPizaaList(chicken)}}
+            
+            
+            
+            
+            
+                        </div>
+
+        </div>
+      
+    </p>
+
+
+  
+
+    <div class="well">
+        <h1>Beef Pizzas</h1>
+        {{macro.displayPizaaList(beef)}}
+    </div>
+
+    <div class="well">
+        <h1>Vegetarian Pizzas</h1>
+        {{macro.displayPizaaList(vegetable)}}
+    </div>
+
+
 </body>
+
 </html>

@@ -1,0 +1,26 @@
+{% macro displayPizaaList(pizza_list) %} 
+{% for pizza in pizza_list %}
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<div class="col-md-4 col-lg-4 col-sm-4">
+
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                <img class="card-img-top" src="{{pizza.img_url}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{pizza.name}}</h5>
+                  <p class="card-text">{{pizza.description}}</p>
+                
+                
+                  <p class="card-text"> {{pizza.price}}</p>
+                  <p class="card-text">{{pizza.size}}</p>
+              
+                        <a href="#" class="btn btn-primary">add to cart</a>
+              </div>
+              </div>
+              
+</div>
+
+
+{% endfor %} {% endmacro %}
+
